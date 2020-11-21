@@ -1,0 +1,18 @@
+*{
+margin: 0px;
+
+}
+
+.AppContainer{
+padding: 5%;
+}
+.container{
+border: skyblue solid 2px;
+margin: 5%;
+padding: 5%;
+
+}
+
+h2{
+  font-size: 1.5em;
+}
