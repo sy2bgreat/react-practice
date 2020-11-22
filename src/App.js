@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Component } from 'react';
 import './App.css';
 
 function App() {
+  const changeTitle = ClickTitle ();
   return (
     <div className="AppContainer">
+      <header>
+        <button className="btn" onClick={() => changeTitle("Home")}>Home</button>
+        
+        <button  className="btn" onClick={() => changeTitle("Contact")}>Contact</button>
+      </header>
      <FuncComp initNumber={2}></FuncComp>
      <ClassComp initNumber={2}></ClassComp>
     </div>
@@ -17,9 +23,11 @@ function FuncComp(props){
   let number = numberState[0];
   let setNumber = numberState[1];
 
-  const dateState = useState((new Date()).toString());
-  let _date = dateState[0];
-  let setDate = dateState[1];
+  const [_date, setDate] = useState((new Date()).toString());
+
+  // const dateState = useState((new Date()).toString());
+  // let _date = dateState[0];
+  // let setDate = dateState[1];
   return(
 <div className="container">
   <h2>Functional Style Component</h2>
@@ -59,5 +67,25 @@ class ClassComp extends Component{
   };
 
 }
+
+function ClickTitle(){
+
+  const [ title, setTitle ] = useState(null);
+
+  const upTitle = () => {
+    const htmlTitle = document.querySelector('title');
+    htmlTitle.innerHTML = title;
+  };
+
+
+
+  useEffect(upTitle, [title]);
+
+  return setTitle;
+
+ 
+ 
+}
+
 
 export default App;

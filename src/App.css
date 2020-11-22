@@ -3,6 +3,17 @@ margin: 0px;
 
 }
 
+.btn{
+  border: none;
+  background-color: #a0b6fe;
+  text-align:center;
+  font-size: 1em;
+  margin: 4px 3px;
+  justify-content: center;
+  
+  
+}
+
 .AppContainer{
 padding: 5%;
 }
