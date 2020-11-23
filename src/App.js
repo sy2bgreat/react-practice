@@ -4,6 +4,9 @@ import './App.css';
 
 function App() {
   const changeTitle = ClickTitle ();
+  const [show,funcShow] =useState(true);
+  const [_show,classShow] = useState(true);
+  
   return (
     <div className="AppContainer">
       <header>
@@ -11,8 +14,11 @@ function App() {
         
         <button  className="btn" onClick={() => changeTitle("Contact")}>Contact</button>
       </header>
-     <FuncComp initNumber={2}></FuncComp>
-     <ClassComp initNumber={2}></ClassComp>
+      <button onClick={()=>funcShow(!show)}>Functional Comp</button>
+      
+      <button onClick={()=>classShow(!_show)}>Class Comp</button>
+    {show ? <FuncComp initNumber={2}></FuncComp> : null }
+    {_show ? <ClassComp initNumber={2}></ClassComp> : null }
     </div>
   );
 } //it's rendering itself
@@ -28,6 +34,8 @@ function FuncComp(props){
   // const dateState = useState((new Date()).toString());
   // let _date = dateState[0];
   // let setDate = dateState[1];
+
+
   return(
 <div className="container">
   <h2>Functional Style Component</h2>
